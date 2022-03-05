@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("api/v1")
 public class ContactController {
 
@@ -49,6 +50,7 @@ public class ContactController {
 
         Boolean rez =  service.saveContacts(body);
 
+
         return new ResponseEntity<>(rez, new HttpHeaders(), HttpStatus.OK);
     }
 
@@ -65,4 +67,9 @@ public class ContactController {
         var rez =  service.toCSV();
         return new ResponseEntity<>(rez, new HttpHeaders(), HttpStatus.OK);
     }
+
+
+
+
+
 }
