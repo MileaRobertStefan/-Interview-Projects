@@ -13,6 +13,8 @@ import javax.lang.model.element.Name;
 
 public interface  MyContactsRepository extends CrudRepository<Contact, Long> {
 
+   public Iterable<Contact> findContactByNameStartingWith(String Name);
+
    public Iterable<Contact> findContactByName(String Name);
 
 }

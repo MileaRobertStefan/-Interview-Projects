@@ -35,7 +35,7 @@ xhttp.onload = () => {
     text = text +  "</tbody></table></div>"
 
 
-    document.getElementById("demo").innerHTML = text;
+    document.getElementById("table").innerHTML = text;
 }
 
 
@@ -46,3 +46,5 @@ function   loadDoc() {
     xhttp.setRequestHeader("Access-Control-Allow-Origin", "http://localhost/3000")
     xhttp.send();
 }
+
+loadDoc()

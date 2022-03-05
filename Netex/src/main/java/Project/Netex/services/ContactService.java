@@ -6,6 +6,7 @@ import Project.Netex.reposioty.MyContactsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.lang.model.element.Name;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,9 +28,17 @@ public class ContactService {
     public List<Contact> getContactByName(String name) {
         if (name == null) return null;
 
-        List<Contact> rez = (List<Contact>) repository.findContactByName(name);
+        List<Contact> rez = (List<Contact>) repository.findContactByNameStartingWith(name);
         System.out.println(rez);
         return rez;
+    }
+    public boolean deleteByName(String name){
+        List<Contact> entities = (List<Contact>) repository.findContactByName(name);
+        if ( entities.size() == 0) {
+            return  false;
+        }
+        repository.delete(entities.get(0));
+        return true;
     }
 
     public boolean saveContacts(List<Contact> contacts) {

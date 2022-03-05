@@ -44,13 +44,17 @@ public class ContactController {
         return new ResponseEntity<>(rez, new HttpHeaders(), HttpStatus.OK);
     }
 
+    @RequestMapping(path = "/contacts/{NAME}", method = RequestMethod.DELETE)
+    public ResponseEntity<Boolean> deleteContract(@PathVariable String NAME) {
+        var rez = service.deleteByName(NAME);
+        return new ResponseEntity<>(rez, new HttpHeaders(), HttpStatus.OK);
+    }
+
 
     @RequestMapping(path = "/contacts", method = RequestMethod.POST)
     public ResponseEntity<Boolean> saveContacts (@RequestBody List<Contact> body) throws ParseException {
 
         Boolean rez =  service.saveContacts(body);
-
-
         return new ResponseEntity<>(rez, new HttpHeaders(), HttpStatus.OK);
     }
 
