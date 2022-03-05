@@ -58,7 +58,7 @@ public class ContactController {
         return new ResponseEntity<>(rez, new HttpHeaders(), HttpStatus.OK);
     }
 
-    @RequestMapping(path = "/contact", method = RequestMethod.POST)
+    @RequestMapping(path = "/contact", method = RequestMethod.POST , consumes = {"application/json"})
     public ResponseEntity<Boolean> saveContacts (@RequestBody Contact body) throws ParseException {
 
         Boolean rez =  service.saveContact(body);

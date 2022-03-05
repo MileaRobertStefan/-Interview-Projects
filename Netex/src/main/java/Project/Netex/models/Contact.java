@@ -60,7 +60,7 @@ public class Contact {
     }
 
     public static String getCSVH(){
-        return "ID\tNAME\tADDRESS\tPICTURE";
+        return "ID,\tNAME,\tADDRESS,\tPICTURE";
     }
 
     public String toCSV(){

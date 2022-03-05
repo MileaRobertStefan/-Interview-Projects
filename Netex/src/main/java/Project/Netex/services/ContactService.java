@@ -54,6 +54,7 @@ public class ContactService {
         List<Contact>  c = (List<Contact>) repository.findContactByName( contact.getName() );
 
         if (c.size() == 0 ){
+            repository.save(contact);
             return false;
         }
 
