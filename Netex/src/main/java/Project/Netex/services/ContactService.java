@@ -66,7 +66,7 @@ public class ContactService {
             return false;
         }
 
-        FileUploadUtil.deleteFile(uploadDir, c.get(0).getPicture());
+        FileUploadUtil.deleteFile(uploadDir, c.get(0).getName() + "_" + c.get(0).getPicture());
         contact.setId(c.get(0).getId());
         repository.save(contact);
         return true;
@@ -87,11 +87,11 @@ public class ContactService {
         return stringBuilder.toString();
     }
 
-    public boolean savePhoto(MultipartFile multipartFile) {
+    public boolean savePhoto(MultipartFile multipartFile, String name) {
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
 
         try {
-            FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+            FileUploadUtil.saveFile(uploadDir, name + "_" + fileName, multipartFile);
         } catch (Exception e) {
             return false;
         }
