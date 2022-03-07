@@ -3,6 +3,7 @@ package Project.Netex.models;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 
@@ -12,15 +13,20 @@ public class Contact {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
     private Long id;
 
     private String picture;
+
     private String name;
+
     private String address;
+
+
 
     protected Contact() {};
 
-    @JsonCreator
     public Contact(String picture, String name, String address) {
         this.picture = picture;
         this.name = name;

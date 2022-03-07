@@ -1,18 +1,23 @@
 package Project.Netex.services;
 
 
+import Project.Netex.helpers.FileUploadUtil;
 import Project.Netex.models.Contact;
 import Project.Netex.reposioty.MyContactsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.lang.model.element.Name;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ContactService {
-
+    private static final String uploadDir = "user-photos/";
     @Autowired
     private MyContactsRepository repository;
 
@@ -32,11 +37,14 @@ public class ContactService {
         System.out.println(rez);
         return rez;
     }
-    public boolean deleteByName(String name){
+
+    public boolean deleteByName(String name) {
         List<Contact> entities = (List<Contact>) repository.findContactByName(name);
-        if ( entities.size() == 0) {
-            return  false;
+        if (entities.size() == 0) {
+            return false;
         }
+
+        FileUploadUtil.deleteFile(uploadDir, entities.get(0).getPicture());
         repository.delete(entities.get(0));
         return true;
     }
@@ -51,19 +59,20 @@ public class ContactService {
     public boolean saveContact(Contact contact) {
         if (contact == null) return false;
 
-        List<Contact>  c = (List<Contact>) repository.findContactByName( contact.getName() );
+        List<Contact> c = (List<Contact>) repository.findContactByName(contact.getName());
 
-        if (c.size() == 0 ){
+        if (c.size() == 0) {
             repository.save(contact);
             return false;
         }
 
-        contact.setId( c.get(0).getId() );
+        FileUploadUtil.deleteFile(uploadDir, c.get(0).getPicture());
+        contact.setId(c.get(0).getId());
         repository.save(contact);
         return true;
     }
 
-    public String toCSV(){
+    public String toCSV() {
 
         var contacts = repository.findAll();
 
@@ -71,11 +80,22 @@ public class ContactService {
 
         stringBuilder.append(Contact.getCSVH());
 
-        for( var contact : contacts){
-          stringBuilder.append(contact.toCSV());
+        for (var contact : contacts) {
+            stringBuilder.append(contact.toCSV());
         }
 
         return stringBuilder.toString();
+    }
+
+    public boolean savePhoto(MultipartFile multipartFile) {
+        String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
+
+        try {
+            FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
 }

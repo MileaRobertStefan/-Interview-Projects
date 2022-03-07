@@ -1,4 +1,7 @@
+const server_api = "http://localhost:3000/api/v1"
+const photo_api ="http://localhost:63342/user-photos"
 console.log("Loaded")
+
 
 function  hidd_tabs(){
     document.getElementById("add_new_contact").hidden = true;
@@ -7,11 +10,13 @@ function  hidd_tabs(){
 
 const xhttp = new XMLHttpRequest();
 
-function create_line( items ){
+function create_line( items , picture ){
     let rez = "<tr>"
     for(const item of  items){
         rez += `<td> ${item} </td>`
     }
+
+    rez += `<td> <img  src=\"${photo_api}/${picture}\" height=\"50\" alt=\"Err...\"> </td>`
     rez += "</tr>"
     return  rez
 }
@@ -19,7 +24,7 @@ function create_line( items ){
 xhttp.onload = () => {
     let contacts = JSON.parse(xhttp.responseText);
     console.log(contacts)
-    let text = " <div class=\"table-responsive\"> <table class=\"table table-striped table-bordered table-hover\">\n" +
+    let text = " <div class=\"table-responsive text-center\"> <table class=\"table table-striped table-bordered table-hover\">\n" +
         "  <thead class=\"thead-dark\">\n" +
         "    <tr>\n" +
         "      <th scope=\"col\">#</th>\n" +
@@ -32,14 +37,14 @@ xhttp.onload = () => {
     let row = 1
     for (const elem of contacts) {
         console.log(elem)
-        text += create_line([ row++ ,elem.name, elem.address, elem.picture])
+        text += create_line([ row++ ,elem.name, elem.address], elem.picture)
     }
     text = text +  "</tbody></table></div>"
     document.getElementById("table").innerHTML = text;
 }
 
 function   loadDoc() {
-    xhttp.open("GET", "http://localhost:3000/api/v1/contacts", true,);
+    xhttp.open("GET", server_api+ "/contacts", true,);
     xhttp.setRequestHeader("Access-Control-Allow-Origin", "http://localhost/3000")
     xhttp.send();
 }
@@ -50,7 +55,7 @@ async function export2csv(){
     console.log("export2csv")
     hidd_tabs()
     localRequest =  new XMLHttpRequest();
-    localRequest.open("GET","http://localhost:3000/api/v1/csv")
+    localRequest.open("GET",server_api +"/csv")
     localRequest.onload = () => {
 
         data = localRequest.responseText
@@ -87,20 +92,28 @@ async function editContact(){
 
 async function newConntactSubmit(){
     console.log("newConntactSubmit")
+
+    let formData = new FormData();
+
     localRequest =  new XMLHttpRequest();
     let contact = {
         "id" : 0,
         "name" : document.getElementById("form_1_name").value,
         "address" : document.getElementById("form_1_address").value,
-        "picture" : document.getElementById("form_1_picture").value,
+        "picture" : document.getElementById("form_1_picture").files[0].name,
+    }
+    console.log(contact)
+    formData.append("contact", JSON.stringify(contact));
+
+    for (const file of document.getElementById("form_1_picture").files) {
+        formData.append("files", file);
     }
 
     localRequest.onload = () =>{
         loadDoc()
     }
-    localRequest.open("POST","http://localhost:3000/api/v1/contact")
-    localRequest.setRequestHeader("Content-Type", "application/json");
-    localRequest.send(JSON.stringify(contact))
+    localRequest.open("POST",server_api + "/contact")
+    localRequest.send(formData)
 
     hidd_tabs()
 }
@@ -123,8 +136,7 @@ async function deleteConntactSubmit(){
     localRequest.onload = () =>{
         loadDoc()
     }
-    localRequest.open("DELETE","http://localhost:3000/api/v1/contacts/" + contact_name )
-    localRequest.send()
+    localRequest.open("DELETE",server_api+  "/contacts/" + contact_name )
     localRequest.send()
     hidd_tabs()
 }
@@ -133,6 +145,7 @@ async function deleteConntactCancel(){
     console.log("deleteConntactCancel")
     hidd_tabs()
 }
+
 
 
 loadDoc()
