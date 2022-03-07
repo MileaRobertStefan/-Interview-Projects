@@ -87,11 +87,11 @@ public class ContactService {
         return stringBuilder.toString();
     }
 
-    public boolean savePhoto(MultipartFile multipartFile) {
+    public boolean savePhoto(MultipartFile multipartFile, String name) {
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
 
         try {
-            FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+            FileUploadUtil.saveFile(uploadDir, name + "_" + fileName, multipartFile);
         } catch (Exception e) {
             return false;
         }

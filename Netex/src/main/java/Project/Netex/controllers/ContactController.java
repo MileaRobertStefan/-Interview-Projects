@@ -62,7 +62,7 @@ public class ContactController {
         Contact contact = new ObjectMapper().readValue(scontact, Contact.class);
 
         boolean rez = service.saveContact(contact);
-        rez &= service.savePhoto(multipartFile);
+        rez &= service.savePhoto(multipartFile, contact.getName());
 
         return new ResponseEntity<>(rez, new HttpHeaders(), HttpStatus.OK);
     }
@@ -76,7 +76,7 @@ public class ContactController {
 
     @PostMapping("/photo")
     public ResponseEntity<Boolean> saveUser(@RequestParam("files") MultipartFile multipartFile) {
-        var rez  = service.savePhoto(multipartFile);
+        var rez  = service.savePhoto(multipartFile,"name_");
         return new ResponseEntity<>(rez, new HttpHeaders(), HttpStatus.OK);
     }
 

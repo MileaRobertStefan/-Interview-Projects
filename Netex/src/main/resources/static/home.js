@@ -16,7 +16,7 @@ function create_line( items , picture ){
         rez += `<td> ${item} </td>`
     }
 
-    rez += `<td> <img  src=\"${photo_api}/${picture}\" height=\"50\" alt=\"Err...\"> </td>`
+    rez += `<td> <img  src=\"${photo_api}/${picture}\" height=\"50\" width="75" alt=\"Err...\"> </td>`
     rez += "</tr>"
     return  rez
 }
@@ -37,7 +37,7 @@ xhttp.onload = () => {
     let row = 1
     for (const elem of contacts) {
         console.log(elem)
-        text += create_line([ row++ ,elem.name, elem.address], elem.picture)
+        text += create_line([ row++ ,elem.name, elem.address],elem.name + "_" + elem.picture)
     }
     text = text +  "</tbody></table></div>"
     document.getElementById("table").innerHTML = text;
