@@ -1,0 +1,18 @@
+<div class="container flex-column flex-center p-3">
+
+    <form #createForm="ngForm">
+        <div fxLayout="column" fxLayoutAlign="space-around center" style="margin-top:2em;">
+
+            <mat-label>  <h2>Create a new Offer</h2> </mat-label>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label> Offer description </mat-label>
+                <textarea required matInput placeholder="I can offer  you a palce to sleep!" name="description"
+                    [(ngModel)]="description"></textarea>
+            </mat-form-field>
+
+
+            <button type="button" mat-raised-button color="accent" (click)="submit(createForm)">Add new task!</button>
+        </div>
+    </form>
+</div>
