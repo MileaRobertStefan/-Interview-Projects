@@ -1,7 +1,6 @@
-package Project.controllers;
+package Project.offer;
 
-import Project.models.Offer;
-import Project.services.OfferService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

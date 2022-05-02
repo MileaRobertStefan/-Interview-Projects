@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OffersComponent } from './offers/offers.component';
-import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,23 +12,25 @@ import {MatButtonModule} from '@angular/material/button';
 import {LayoutModule} from '@angular/cdk/layout'
 import { FlexLayoutModule } from "@angular/flex-layout";
 import {MatTableModule} from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { OfferCreateComponent } from './offers/offer-create/offer-create.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import {  MatInputModule } from '@angular/material/input';
-import { UserCreateComponent } from './users/user-create/user-create.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthentInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     OffersComponent,
-    UsersComponent,
     HomeComponent,
     TopBarComponent,
     OfferCreateComponent,
-    UserCreateComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     HttpClientModule,
@@ -45,7 +46,11 @@ import { UserCreateComponent } from './users/user-create/user-create.component';
     FormsModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthentInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

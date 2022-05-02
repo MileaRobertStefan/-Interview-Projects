@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { SnackService } from 'src/app/services/snack.service';
 import { Offer } from 'src/app/types/types';
 import { HttpClient } from '@angular/common/http';
-import { OfferStateService } from 'src/app/services/Offer.service';
+import { OfferStateService } from 'src/app/services/offer.service';
 
 @Component({
   selector: 'app-offer-create',

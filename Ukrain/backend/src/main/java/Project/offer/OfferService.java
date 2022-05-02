@@ -1,7 +1,5 @@
-package Project.services;
+package Project.offer;
 
-import Project.models.Offer;
-import Project.reposioty.OfferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

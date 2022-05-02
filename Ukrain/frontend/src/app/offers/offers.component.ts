@@ -3,7 +3,7 @@ import { Offer } from '../types/types';
 import { HttpClient } from '@angular/common/http';
 import { SnackService } from '../services/snack.service';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { OfferStateService } from '../services/Offer.service';
+import { OfferStateService } from '../services/offer.service';
 
 
 @Component({
@@ -34,6 +34,10 @@ export class OffersComponent implements OnInit {
 
   public ngOnDestroy(): void {
     this.subs.forEach(sub => sub.unsubscribe());
+  }
+
+  async asta(){
+    this.tx.loadData();
   }
 
 }

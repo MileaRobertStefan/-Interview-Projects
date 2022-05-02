@@ -1,6 +1,10 @@
 package Project.registration;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,13 +15,16 @@ public class RegistrationController {
     private final RegistrationService registrationService;
 
     @PostMapping
-    public String register(@RequestBody RegistrationRequest request) {
-        return registrationService.register(request);
+    public ResponseEntity<String> register(@RequestBody RegistrationRequest request) {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+        return  new ResponseEntity<>("{\"token\":\"" + registrationService.register(request) + "\"}", httpHeaders, HttpStatus.OK);
     }
 
     @GetMapping(path = "confirm")
-    public String confirm(@RequestParam("token") String token) {
-        return registrationService.confirmToken(token);
+    public ResponseEntity<String> confirm(@RequestParam("token") String token) {
+        return  new ResponseEntity<>(registrationService.confirmToken(token), new HttpHeaders(), HttpStatus.OK);
     }
 
 }

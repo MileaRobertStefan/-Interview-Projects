@@ -7,20 +7,26 @@
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> First name </mat-label>
-                <textarea required matInput placeholder="Jhon" name="first_name"
-                    [(ngModel)]="first_name"></textarea>
+                <textarea required matInput placeholder="Jhon" name="firstName"
+                    [(ngModel)]="firstName"></textarea>
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> Last name </mat-label>
-                <textarea required matInput placeholder="Doe" name="last_name"
-                    [(ngModel)]="last_name"></textarea>
+                <textarea required matInput placeholder="Doe" name="lastName"
+                    [(ngModel)]="lastName"></textarea>
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> Email <address></address> </mat-label>
-                <input type="email" name="email" ngModel email  required matInput placeholder="test@exp.com" name="email"
+                <input type="email" name="email" ngModel email  required matInput placeholder="test@exp.com"
                     [(ngModel)]="email">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label> Password <address></address> </mat-label>
+                <input type="password" name="password" ngModel   required matInput 
+                    [(ngModel)]="password">
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="fill">

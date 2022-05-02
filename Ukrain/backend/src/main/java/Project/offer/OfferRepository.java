@@ -1,6 +1,6 @@
-package Project.reposioty;
+package Project.offer;
 
-import Project.models.Offer;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

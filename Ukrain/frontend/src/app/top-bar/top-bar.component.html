@@ -3,9 +3,12 @@
     <h2>Hello this is my cool ap </h2>
     
     <div fxLayout="row" fxLayoutAlign="space-around center">
-        <button mat-raised-button color="primary"> Do something 1 </button>
-        <button mat-raised-button color="primary"> Do something 2 </button>
+        <button mat-raised-button color="primary" (click)="login()"> Login </button>
+        <button mat-raised-button color="primary" (click)="offers()"> See Housing Offers </button>
         <button mat-raised-button color="primary"> Do something 3 </button>
         <button mat-raised-button color="primary"> Do something 4 </button>
     </div>
+
+
+    <div>{{firstName}} {{lastName}}</div>
 </div>

@@ -5,9 +5,21 @@ export interface Offer {
 
 
 export interface User{
-  first_name: string;
-  last_name:string;
+  firstName: string;
+  lastName:string;
   email:string;
   telephone:string;
-  id:Number
+  password:string;
+  token?:string;
+}
+
+export class EMPTY_TYPE {
+  public static EMPTRY_USER : User = {
+    firstName: "",
+    lastName:"",
+    email:"",
+    telephone:"",
+    password:"",
+    token:""
+  }
 }

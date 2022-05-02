@@ -2,7 +2,8 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject, Observable, Subject } from "rxjs";
 import { Offer } from "../types/types";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
     providedIn: 'root'
@@ -50,11 +51,13 @@ export class OfferStateService {
         this.offers.next([...this.offers.value, newoffer]);
     }
 
-    private async loadData(): Promise<void> {
-
+    public async loadData(): Promise<void> {
         let myCoolString = "http://localhost:3000/api/v1/offers"
         this.http.get<Offer[]>(myCoolString).subscribe((data: Offer[]) => {
             this.offers.next(data);
-        })
+        }, error => {
+            console.log(error)
+        }
+        )
     }
 }

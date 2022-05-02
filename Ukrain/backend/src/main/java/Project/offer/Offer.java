@@ -1,4 +1,4 @@
-package Project.models;
+package Project.offer;
 
 import javax.persistence.*;
 
