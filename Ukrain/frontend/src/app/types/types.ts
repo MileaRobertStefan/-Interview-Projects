@@ -1,6 +1,7 @@
 export interface Offer {
     description: string;
-    postedBy: string;
+    appUser?: User;
+    id?:number
   };
 
 
@@ -11,6 +12,16 @@ export interface User{
   telephone:string;
   password:string;
   token?:string;
+  id?:Number;
+}
+
+export interface PendingOffer{
+  id:number,
+  appUser:User,
+  offer:Offer,
+  accepted:boolean,
+  createdAt?:any,
+  LocalDateTime?:any
 }
 
 export class EMPTY_TYPE {
@@ -20,6 +31,12 @@ export class EMPTY_TYPE {
     email:"",
     telephone:"",
     password:"",
-    token:""
+    token:"",
+    id:0
+  }
+
+  public static EMPTY_OFFER:Offer = {
+    description:"",
+    id:-1
   }
 }

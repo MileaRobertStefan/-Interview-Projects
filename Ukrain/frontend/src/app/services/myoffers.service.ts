@@ -9,7 +9,7 @@ import { C } from "src/app/types/const";
 @Injectable({
     providedIn: 'root'
 })
-export class OfferStateService {
+export class MyOffersStateService {
     private count: number = 0;
 
     private readonly emitter: Subject<void>;
@@ -25,9 +25,10 @@ export class OfferStateService {
         this.offers = new BehaviorSubject<Offer[]>([]);
 
         this.emitter = new Subject<void>();
-        this.emitter.subscribe(() => this.loadData());
+        this.emitter.subscribe(() => this.loadData(0));
         this.emitter.next();
     }
+
 
     public get asObservable(): Observable<Offer | undefined> {
         return this.offer.asObservable();
@@ -39,7 +40,7 @@ export class OfferStateService {
 
     public updateCurrentoffer(offer: Offer) {
         this.offer.next(offer);
-        this.router.navigate(["all_offers"]);
+        this.router.navigate(["myoffers"]);
     }
 
 
@@ -52,8 +53,8 @@ export class OfferStateService {
         this.offers.next([...this.offers.value, newoffer]);
     }
 
-    public async loadData(): Promise<void> {
-        let myCoolString = C.API + "offers"
+    public async loadData(user_id:any): Promise<void> {
+        let myCoolString = C.API + "offers" + "/" + user_id;
         this.http.get<Offer[]>(myCoolString).subscribe((data: Offer[]) => {
             this.offers.next(data);
         }, error => {

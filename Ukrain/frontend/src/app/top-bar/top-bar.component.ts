@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user.service';
-import { User } from '../types/types';
+import { EMPTY_TYPE, User } from '../types/types';
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
@@ -12,6 +12,10 @@ export class TopBarComponent implements OnInit {
   public lastName: string = "";
   public firstName: string = "";
 
+  public user: User = EMPTY_TYPE.EMPTRY_USER;
+
+  public subtitle: string = "You must log in to use the application";
+
   constructor(private readonly router: Router,
     private readonly userService: UserService
   ) { }
@@ -19,17 +23,31 @@ export class TopBarComponent implements OnInit {
   ngOnInit(): void {
     this.userService.userObservable().subscribe(
       (user: User) => {
-        this.lastName = user.lastName;
-        this.firstName = user.firstName;
+        this.user = user
+
+        if (user != EMPTY_TYPE.EMPTRY_USER) {
+          this.subtitle = `${this.user.lastName} ${this.user.firstName}`
+        }
+
+
       }
     )
   }
+
 
 
   login() {
     this.router.navigate(["/login"])
   }
   offers() {
-    this.router.navigate(["/view-offers"])
+    this.router.navigate(["/all_offers"])
+  }
+
+  register() {
+    this.router.navigate(["/registration"])
+  }
+
+  seeMyOffers(){
+    this.router.navigate(["/myoffers"])
   }
 }

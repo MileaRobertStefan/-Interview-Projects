@@ -1,14 +1,29 @@
 <div>
 
-    <h2>Hello this is my cool ap </h2>
-    
-    <div fxLayout="row" fxLayoutAlign="space-around center">
-        <button mat-raised-button color="primary" (click)="login()"> Login </button>
-        <button mat-raised-button color="primary" (click)="offers()"> See Housing Offers </button>
-        <button mat-raised-button color="primary"> Do something 3 </button>
-        <button mat-raised-button color="primary"> Do something 4 </button>
-    </div>
 
 
-    <div>{{firstName}} {{lastName}}</div>
+
+    <mat-card>
+
+        <mat-card-title>
+            Hello this is my cool app
+        </mat-card-title>
+
+        <mat-card-subtitle>
+            {{ subtitle }}
+        </mat-card-subtitle>
+
+        <mat-card-actions align="end">
+            <button mat-raised-button color="primary" style=" width:10em" (click)="login()"> Login </button>
+            <button mat-raised-button color="primary" style=" width:10em" (click)="offers()"> See All Offers </button>
+
+            <button mat-raised-button color="primary" style=" width:10em" (click)="seeMyOffers()"> See My Offers
+            </button>
+
+            <button mat-raised-button color="primary" style=" width:10em" (click)="register()"> Registration </button>
+        </mat-card-actions>
+
+    </mat-card>
+
+
 </div>

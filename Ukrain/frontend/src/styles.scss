@@ -6,9 +6,33 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .snack-info {
     background-color: rgb(23, 129, 23);
     color: white;
+    text-align: center;
+    align-content: center;
 }
 
 .snack-error {
     background-color: rgb(199, 21, 21);
     color: white;
+    text-align: center;
+    align-content: center;
 }
+
+.mat-table {
+    width: 90%;
+    
+  }
+  
+  .mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+    align-self: center;
+  }
+  
+  .mat-row:hover .mat-cell {
+    border-color: currentColor;
+  }
+  
+  .demo-row-is-clicked {
+    font-weight: bold;
+  }

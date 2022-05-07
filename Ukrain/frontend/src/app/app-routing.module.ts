@@ -2,26 +2,33 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { OffersComponent } from './offers/offers.component';
+import { ViewAllMyOffersComponent } from './offer/view-all-my-offers/view-all-my-offers.component';
+import { ViewAllOffersComponent } from './offer/view-all-offers/view-all-offers.component';
+
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
     path: "",
-    component:  HomeComponent
+    component: HomeComponent
   },
   {
     path: "login",
-    component:  LoginComponent
+    component: LoginComponent
   },
   {
     path: "registration",
-    component:  RegisterComponent
+    component: RegisterComponent
   },
   {
-    path:"view-offers",
-    component:OffersComponent
+    path: "all_offers",
+    component: ViewAllOffersComponent
   },
+  {
+    path: "myoffers",
+    component: ViewAllMyOffersComponent
+  }
+  ,
   { path: '**', redirectTo: '' }
 ];
 

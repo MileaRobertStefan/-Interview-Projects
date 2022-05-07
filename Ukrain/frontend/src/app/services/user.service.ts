@@ -31,8 +31,11 @@ export class UserService {
 
         this.http.post("http://localhost:3000/processLogin", body, { responseType: 'text', headers: headers, observe: "response", withCredentials: true }).subscribe(
             data => {
+                if(! data) return;
+
                 const token = btoa(username + ':' + password)
                 sessionStorage.setItem('token', "Basic " + token);
+               
                 this.snackService.info(`You are loged in!`)
                 this.router.navigate(['']);
 
@@ -40,6 +43,7 @@ export class UserService {
                     myUser => {
                         myUser.token=token;
                         console.log(myUser);
+                        sessionStorage.setItem('id', "" + myUser.id )
                         this.user.next(myUser)
                     },
                     err => {
