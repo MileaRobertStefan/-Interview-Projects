@@ -21,9 +21,10 @@ import { RegisterComponent } from './register/register.component';
 import { AuthentInterceptor } from './services/auth.interceptor';
 import {MatCardModule} from '@angular/material/card';
 import { CreateOfferComponent } from './offer/create-offer/create-offer.component';
-import { ViewSingleOfferComponent } from './offer/view-single-offer/view-single-offer.component';
+import { RefugeMSG, ViewSingleOfferComponent } from './offer/view-single-offer/view-single-offer.component';
 import { ViewAllOffersComponent } from './offer/view-all-offers/view-all-offers.component';
 import { ViewAllMyOffersComponent } from './offer/view-all-my-offers/view-all-my-offers.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ViewAllMyOffersComponent } from './offer/view-all-my-offers/view-all-my
     CreateOfferComponent,
     ViewSingleOfferComponent,
     ViewAllOffersComponent,
-    ViewAllMyOffersComponent
+    ViewAllMyOffersComponent,
+    RefugeMSG
   ],
   imports: [
     HttpClientModule,
@@ -50,7 +52,8 @@ import { ViewAllMyOffersComponent } from './offer/view-all-my-offers/view-all-my
     MatFormFieldModule,
     FormsModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthentInterceptor, multi: true}

@@ -1,7 +1,7 @@
 export interface Offer {
     description: string;
     appUser?: User;
-    id?:number
+    id?:number | any
   };
 
 
@@ -21,7 +21,8 @@ export interface PendingOffer{
   offer:Offer,
   accepted:boolean,
   createdAt?:any,
-  LocalDateTime?:any
+  LocalDateTime?:any,
+  description?:string
 }
 
 export class EMPTY_TYPE {

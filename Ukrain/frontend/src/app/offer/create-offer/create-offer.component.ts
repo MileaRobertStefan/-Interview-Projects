@@ -40,11 +40,13 @@ export class CreateOfferComponent implements OnInit {
     let myCoolString = "http://localhost:3000/api/v1/offers/" + this.user.id
 
     this.http.post(myCoolString, newOffer).subscribe(data => {
-      if (data == true) {
-        this.snackService.info("Offer created succesfully!");
+      if (data) {
         ngForm.reset();
+      
+        newOffer.id =  data;
         this.tx.notifyDataIncrement(newOffer)
 
+        this.snackService.info("Offer created succesfully!");
       } else {
         this.snackService.error("Something didn't go as planed :( ")
       }

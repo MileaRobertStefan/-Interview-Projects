@@ -19,14 +19,19 @@
 
     <ng-template #showMyPost>
         <div  class="container flex-column flex-center p-3">
-            <table mat-table [dataSource]="pendingOffers" class="mat-elevation-z8">
+            <table mat-table [dataSource]="pendingOffers" class="mat-elevation-z8" matSort>
 
-                <ng-container matColumnDef="createdAt">
-                    <th mat-header-cell *matHeaderCellDef> Created on </th>
-                    <td mat-cell *matCellDef="let element"> {{element.createdAt}}</td>
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> Description  </th>
+                    <td mat-cell *matCellDef="let element"> <div> {{element.description}} </div> </td>
                 </ng-container>
-    
-                <ng-container matColumnDef="desceription">
+                
+                <ng-container matColumnDef="accepted">
+                    <th mat-header-cell *matHeaderCellDef> Accepted status  </th>
+                    <td mat-cell *matCellDef="let element"> {{element.accepted}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="user">
                     <th mat-header-cell *matHeaderCellDef>Name of the applicant</th>
                     <td mat-cell *matCellDef="let element"> {{element.reguestedbyuser.firstName}} {{
                         element.reguestedbyuser.lastName}}</td>
@@ -41,7 +46,7 @@
                     <th mat-header-cell *matHeaderCellDef>Confirm acceptence</th>
                     <td mat-cell *matCellDef="let element"> 
 
-                        <button mat-raised-button  style=" width:90%" (click) = "accept_pending_offer(element.reguestedbyuser)" >Accept {{element.reguestedbyuser.firstName}}</button>
+                        <button mat-raised-button  style=" width:90%" (click) = "accept_pending_offer(element)" >Accept {{element.reguestedbyuser.firstName}}</button>
                     </td>
                 </ng-component>
     
@@ -53,7 +58,7 @@
        
     </ng-template>
    
-    <div *ngIf="!myOffer; then ApplyFor else CRUD"> </div>
+    <div *ngIf="!myOffer; then ApplyFor"> </div>
 
     <ng-template #ApplyFor>
         <mat-card-actions align="end">
@@ -62,11 +67,11 @@
     </ng-template>
 
 
-    <ng-template #CRUD>
+    <!-- <ng-template #CRUD>
         <mat-card-actions align="end">
             <button mat-raised-button color="accent" (click)="update()"> Update </button>
             <button mat-raised-button color="accent" (click)="delete()"> Delete </button>
         </mat-card-actions>
-    </ng-template>
+    </ng-template> -->
 
 </mat-card>
