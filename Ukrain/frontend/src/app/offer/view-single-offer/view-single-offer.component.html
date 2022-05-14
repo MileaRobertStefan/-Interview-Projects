@@ -2,13 +2,20 @@
    
 
 
-    <mat-card-title> Title: {{ this.offer.title }} </mat-card-title>
+    <mat-card-title>{{ this.offer.title }} </mat-card-title>
     <mat-card-subtitle> Posted by {{ "" + this.offer.appUser?.firstName + " " +this.offer.appUser?.lastName }}
     </mat-card-subtitle>
     <mat-card-content>
-        <h2>Description:</h2>
 
-        {{this.offer.description}}
+        <h2>Locality:  {{this.offer.locality}}</h2>
+
+        <h2>Maximum number of refugees that i can take:  {{this.offer.maxRefuge}}</h2>
+
+        <h2>Description:</h2>
+        <div>
+            {{this.offer.description}}
+        </div>
+
         
         <div *ngIf="myOffer; then showMyPost"> </div>
         

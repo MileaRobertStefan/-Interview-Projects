@@ -3,6 +3,8 @@ export interface Offer {
     appUser?: User;
     id?:number | any;
     title?:string;
+    locality?:string;
+    maxRefuge?:number
   };
 
 

@@ -16,6 +16,8 @@ export class CreateOfferComponent implements OnInit {
 
   public description: string = "";
   public title: string = "";
+  public locality: string = "";
+  public maxRefuge: number = 0;
 
   public user: User = EMPTY_TYPE.EMPTRY_USER;
   constructor(
@@ -35,7 +37,9 @@ export class CreateOfferComponent implements OnInit {
     let newOffer: Offer = {
       "description": this.description,
       "appUser": this.user,
-      "title": this.title
+      "title": this.title,
+      "locality": this.locality,
+      "maxRefuge": this.maxRefuge
     };
 
     console.log("did it work?")

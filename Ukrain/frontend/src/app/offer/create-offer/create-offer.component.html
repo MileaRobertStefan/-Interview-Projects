@@ -11,6 +11,18 @@
                     [(ngModel)]="title"></textarea>
             </mat-form-field>
 
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label> Location </mat-label>
+                <textarea required matInput placeholder="Iasi" name="location"
+                    [(ngModel)]="locality"></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label> Maximum number of refugees (including kids) </mat-label>
+                <input required matInput  name="maxRef"
+                    [(ngModel)]="maxRefuge" type="number" min="0" max="100">
+            </mat-form-field>
+
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> Offer description </mat-label>
@@ -19,7 +31,7 @@
             </mat-form-field>
 
 
-            <button type="button" mat-raised-button color="accent" (click)="submit(createForm)">Add new task!</button>
+            <button type="button" mat-raised-button color="accent" (click)="submit(createForm)">Post!</button>
         </div>
     </form>
 </div>
