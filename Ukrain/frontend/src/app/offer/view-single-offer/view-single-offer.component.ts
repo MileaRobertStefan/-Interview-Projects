@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { of } from 'rxjs';
+import { OfferStateService } from 'src/app/services/offer.service';
 import { SnackService } from 'src/app/services/snack.service';
 import { UserService } from 'src/app/services/user.service';
 import { C } from 'src/app/types/const';
@@ -15,15 +17,15 @@ export class ViewSingleOfferComponent implements OnInit {
 
   @Input()
   public offer: Offer = EMPTY_TYPE.EMPTY_OFFER
-  public user: User  = EMPTY_TYPE.EMPTRY_USER;
-  
+  public user: User = EMPTY_TYPE.EMPTRY_USER;
+
   @Input()
   public myOffer: boolean = false;
   @Input()
   public pendingOffers: PendingOffer[] = [];
 
 
-  displayedColumns: string[] = ['description','accepted', 'user' , 'email','button'];
+  displayedColumns: string[] = ['description', 'accepted', 'user', 'email', 'button'];
 
 
   constructor(
@@ -33,29 +35,27 @@ export class ViewSingleOfferComponent implements OnInit {
     public dialog: MatDialog
   ) {
 
-   }
-
-  ngOnInit(): void {
-    this.userService.userObservable().subscribe( user => this.user = user)
   }
 
-  apply()
-  {
+  ngOnInit(): void {
+    this.userService.userObservable().subscribe(user => this.user = user)
+  }
 
+  apply() {
     const dialogRef = this.dialog.open(RefugeMSG, {
-      width: '40%',
-      height: "20%",
+      width: '80%',
+      height: "40%",
       data: "",
     });
 
     dialogRef.afterClosed().subscribe(result => {
- 
-      
+      if (!result) return;
+
 
       console.log(this.offer)
-      let myCoolString = C.API  + "pending_offers/" + this.user.id + "/" + this.offer.id
-  
-      this.http.post(myCoolString, result).subscribe( 
+      let myCoolString = C.API + "pending_offers/" + this.user.id + "/" + this.offer.id
+
+      this.http.post(myCoolString, result).subscribe(
         succes => {
           this.snackService.info("Succes! The owner will contact you by email. Please check spam too!")
         },
@@ -63,31 +63,59 @@ export class ViewSingleOfferComponent implements OnInit {
           this.snackService.error(" We encounterd an error!")
         }
       );
+    });
+  }
+
+  update() {
+    let tempOffer: Offer =
+    {
+      description: this.offer.description,
+      title: this.offer.title
+    }
 
 
+    console.log("update", this.offer)
 
+    const dialogRef = this.dialog.open(CRUDMSG, {
+      width: '60%',
+      height: "40%",
+      data: tempOffer,
     });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) return;
 
+      console.log(result)
+      console.log(this.offer)
 
+      this.http.post(
+        C.API + "offers/update/" + this.offer.id,
+        result
+      ).subscribe(data => {
+        this.offer.title = result.title;
+        this.offer.description = result.description;
+
+      },
+        error => {
+          this.snackService.error("we had a problem.");
+        }
+      )
+
+    })
   }
 
-  update(){
-
+  delete() {
+    console.log("delete", this.offer)
   }
 
-  delete(){
-    
-  }
-
-  accept_pending_offer(a: PendingOffer){
+  accept_pending_offer(a: PendingOffer) {
     this.http.post(
       C.API + "pending_offers/confirmOffer/" + a.id,
       {}
     ).subscribe(
-      data => {  a.accepted = true},
-      error => { this.snackService.error("we had a problem.");}
-     
+      data => { a.accepted = true },
+      error => { this.snackService.error("we had a problem."); }
+
     )
   }
 
@@ -95,14 +123,32 @@ export class ViewSingleOfferComponent implements OnInit {
 
 
 @Component({
-  selector: 'dialog-overview-example-dialog',
-  templateUrl: 'dialog-overview-example-dialog.html',
+  selector: 'apply-selector',
+  templateUrl: 'apply-selector.html',
 })
 export class RefugeMSG {
   constructor(
     public dialogRef: MatDialogRef<ViewSingleOfferComponent>,
     @Inject(MAT_DIALOG_DATA) public data: string,
-  ) {}
+  ) { }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+
+@Component({
+  selector: 'crud-selector',
+  templateUrl: 'crud-selector.html',
+})
+export class CRUDMSG {
+  constructor(
+    public dialogRef: MatDialogRef<ViewSingleOfferComponent>,
+    @Inject(MAT_DIALOG_DATA) public offer: Offer,
+  ) { }
+
+
 
   onNoClick(): void {
     this.dialogRef.close();

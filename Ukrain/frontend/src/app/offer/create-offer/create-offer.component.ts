@@ -15,6 +15,8 @@ import { C } from 'src/app/types/const';
 export class CreateOfferComponent implements OnInit {
 
   public description: string = "";
+  public title: string = "";
+
   public user: User = EMPTY_TYPE.EMPTRY_USER;
   constructor(
     private readonly snackService: SnackService,
@@ -32,7 +34,8 @@ export class CreateOfferComponent implements OnInit {
   public async submit(ngForm: NgForm) {
     let newOffer: Offer = {
       "description": this.description,
-      "appUser": this.user
+      "appUser": this.user,
+      "title": this.title
     };
 
     console.log("did it work?")

@@ -41,7 +41,7 @@ export class ViewAllMyOffersComponent implements OnInit {
 
     this.userService.userObservable().subscribe(user => {
       this.user = user
-      if (this.user != EMPTY_TYPE.EMPTRY_USER) {
+      if (this.user != EMPTY_TYPE.EMPTRY_USER && this.user) {
         this.myofferService.loadData(this.user.id)
       }
     })

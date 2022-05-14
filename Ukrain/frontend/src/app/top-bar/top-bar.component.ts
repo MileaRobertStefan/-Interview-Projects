@@ -50,4 +50,12 @@ export class TopBarComponent implements OnInit {
   seeMyOffers(){
     this.router.navigate(["/myoffers"])
   }
+  postOffer(){
+    this.router.navigate(["/new_offer"])
+  }
+
+  home(){
+    this.router.navigate([""])
+  }
+
 }

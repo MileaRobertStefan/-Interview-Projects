@@ -1,7 +1,8 @@
 export interface Offer {
     description: string;
     appUser?: User;
-    id?:number | any
+    id?:number | any;
+    title?:string;
   };
 
 

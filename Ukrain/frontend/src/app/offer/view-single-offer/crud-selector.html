@@ -1,0 +1,28 @@
+<h1 mat-dialog-title> Edit offer </h1>
+
+<div mat-dialog-content fxLayout="column" fxLayoutAlign="space-around center" style="width:100%">
+
+
+
+        <mat-form-field appearance="fill" style="width: 85%">
+            <mat-label> Offer title </mat-label>
+            <textarea required matInput name="title" [(ngModel)]=" this.offer.title"></textarea>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill"  style="width: 85%">
+            <mat-label> Offer description </mat-label>
+            <textarea required matInput  name="description"
+                [(ngModel)]="this.offer.description"></textarea>
+        </mat-form-field>
+
+
+
+   
+</div>
+
+<div mat-dialog-actions fxLayoutAlign="space-around center">
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="offer" cdkFocusInitial>Ok</button>
+
+</div>

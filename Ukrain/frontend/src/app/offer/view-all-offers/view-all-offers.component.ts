@@ -12,7 +12,6 @@ import { Offer } from 'src/app/types/types';
 })
 export class ViewAllOffersComponent implements OnInit {
 
-  displayedColumns: string[] = ['postedBy', 'desceription'];
   dataSource:Offer[] = [];
   private subs: Subscription[] = [];
 

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { CreateOfferComponent } from './offer/create-offer/create-offer.component';
 import { ViewAllMyOffersComponent } from './offer/view-all-my-offers/view-all-my-offers.component';
 import { ViewAllOffersComponent } from './offer/view-all-offers/view-all-offers.component';
 
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: "myoffers",
     component: ViewAllMyOffersComponent
+  },
+  {
+    path: "new_offer",
+    component: CreateOfferComponent
   }
   ,
   { path: '**', redirectTo: '' }

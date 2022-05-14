@@ -21,7 +21,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthentInterceptor } from './services/auth.interceptor';
 import {MatCardModule} from '@angular/material/card';
 import { CreateOfferComponent } from './offer/create-offer/create-offer.component';
-import { RefugeMSG, ViewSingleOfferComponent } from './offer/view-single-offer/view-single-offer.component';
+import { CRUDMSG, RefugeMSG, ViewSingleOfferComponent } from './offer/view-single-offer/view-single-offer.component';
 import { ViewAllOffersComponent } from './offer/view-all-offers/view-all-offers.component';
 import { ViewAllMyOffersComponent } from './offer/view-all-my-offers/view-all-my-offers.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -37,7 +37,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     ViewSingleOfferComponent,
     ViewAllOffersComponent,
     ViewAllMyOffersComponent,
-    RefugeMSG
+    RefugeMSG,
+    CRUDMSG
   ],
   imports: [
     HttpClientModule,

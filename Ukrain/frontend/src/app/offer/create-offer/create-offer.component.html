@@ -6,8 +6,15 @@
             <mat-label>  <h2>Create a new Offer</h2> </mat-label>
 
             <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label> Offer title </mat-label>
+                <textarea required matInput placeholder="Home for 3" name="description"
+                    [(ngModel)]="title"></textarea>
+            </mat-form-field>
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> Offer description </mat-label>
-                <textarea required matInput placeholder="I can offer  you a palce to sleep!" name="description"
+                <textarea required matInput placeholder="I can offer  you a place to sleep!" name="description"
                     [(ngModel)]="description"></textarea>
             </mat-form-field>
 
