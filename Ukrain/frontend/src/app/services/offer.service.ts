@@ -42,6 +42,15 @@ export class OfferStateService {
         this.router.navigate(["all_offers"]);
     }
 
+    public realod(): void {
+
+        let myCoolString = C.API + "offers";
+        this.http.get<Offer[]>(myCoolString).subscribe((data: Offer[]) => {
+            this.offers.next(data);
+        }, error => {
+            console.log(error)
+        })
+    }
 
     public updateData(): void {
         this.emitter.next();
@@ -58,7 +67,6 @@ export class OfferStateService {
             this.offers.next(data);
         }, error => {
             console.log(error)
-        }
-        )
+        } )
     }
 }

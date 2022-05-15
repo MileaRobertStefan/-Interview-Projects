@@ -32,10 +32,9 @@ export class ViewSingleOfferComponent implements OnInit {
     private readonly http: HttpClient,
     private readonly snackService: SnackService,
     private readonly userService: UserService,
-    public dialog: MatDialog
-  ) {
-
-  }
+    public dialog: MatDialog,
+    private readonly tx: OfferStateService
+  ) {}
 
   ngOnInit(): void {
     this.userService.userObservable().subscribe(user => this.user = user)
@@ -50,7 +49,6 @@ export class ViewSingleOfferComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) return;
-
 
       console.log(this.offer)
       let myCoolString = C.API + "pending_offers/" + this.user.id + "/" + this.offer.id
@@ -73,7 +71,6 @@ export class ViewSingleOfferComponent implements OnInit {
       title: this.offer.title
     }
 
-
     console.log("update", this.offer)
 
     const dialogRef = this.dialog.open(CRUDMSG, {
@@ -95,12 +92,12 @@ export class ViewSingleOfferComponent implements OnInit {
         this.offer.title = result.title;
         this.offer.description = result.description;
 
+        this.tx.realod();
+
       },
         error => {
           this.snackService.error("we had a problem.");
-        }
-      )
-
+        })
     })
   }
 
