@@ -34,4 +34,18 @@ public class EmailService implements EmailSender{
             throw new IllegalStateException("failed to send email");
         }
     }
+
+    public void notifyNewPendingRequest(String to, String email) {
+        try {
+            MimeMessage mimeMessage = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "utf-8");
+            helper.setText(email, true);
+            helper.setTo(to);
+            helper.setSubject("Some one needs you!");
+            mailSender.send(mimeMessage);
+        } catch (MessagingException e) {
+            LOGGER.error("failed to send email", e);
+            throw new IllegalStateException("failed to send email");
+        }
+    }
 }

@@ -1,40 +1,40 @@
 package Project.offer;
 
-import javax.persistence.*;
+import Project.appuser.AppUser;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Objects;
+
+
+@Getter
+@Setter
+@ToString
 @Entity(name = "Offer")
 @Table(name = "OFFERS")
-
 public class Offer {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
-
     private String description;
+    private String title;
 
-    public Long getId() {
-        return id;
-    }
+    private String locality;
+    private Integer maxRefuge;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getDescription() {
-        return description;
-    }
+    private LocalDateTime createdAt;
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    @ManyToOne
+    @JoinColumn(
+            nullable = false,
+            name = "user_id"
+    )
+    private AppUser appUser;
 
-    @Override
-    public String toString() {
-        return "Offer{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                '}';
-    }
 }

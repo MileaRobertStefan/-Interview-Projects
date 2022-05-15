@@ -43,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // hard time with Angular : So disable for now
 
                 .authorizeRequests()
-                .antMatchers("/api/v*/registration/**")
+                .antMatchers("/api/v*/registration/**", "/api/v*/offers")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
