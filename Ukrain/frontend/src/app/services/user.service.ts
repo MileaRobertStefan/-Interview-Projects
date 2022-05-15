@@ -10,16 +10,20 @@ import { SnackService } from "./snack.service";
     providedIn: 'root'
 })
 export class UserService {
-;
+    ;
     private readonly user: BehaviorSubject<User>;
-    
+
     constructor(
         private readonly http: HttpClient,
         private readonly router: Router,
         private readonly snackService: SnackService
     ) {
-
-        this.user = new BehaviorSubject<User>(EMPTY_TYPE.EMPTRY_USER);
+        let user = sessionStorage.getItem("user");
+        if (!user) {
+            this.user = new BehaviorSubject<User>(EMPTY_TYPE.EMPTRY_USER);
+        } else {
+            this.user = new BehaviorSubject<User>(JSON.parse(user))
+        }
     }
 
     public async login(username: string, password: string): Promise<void> {
@@ -31,19 +35,20 @@ export class UserService {
 
         this.http.post("http://localhost:3000/processLogin", body, { responseType: 'text', headers: headers, observe: "response", withCredentials: true }).subscribe(
             data => {
-                if(! data) return;
+                if (!data) return;
 
                 const token = btoa(username + ':' + password)
                 sessionStorage.setItem('token', "Basic " + token);
-               
+
                 this.snackService.info(`You are loged in!`)
                 this.router.navigate(['']);
 
                 this.http.get<User>(C.API + "user/" + username).subscribe(
                     myUser => {
-                        myUser.token=token;
+                        myUser.token = token;
                         console.log(myUser);
-                        sessionStorage.setItem('id', "" + myUser.id )
+                        sessionStorage.setItem("user", JSON.stringify(myUser))
+                        sessionStorage.setItem('id', "" + myUser.id)
                         this.user.next(myUser)
                     },
                     err => {
