@@ -25,6 +25,10 @@ import { CRUDMSG, RefugeMSG, ViewSingleOfferComponent } from './offer/view-singl
 import { ViewAllOffersComponent } from './offer/view-all-offers/view-all-offers.component';
 import { ViewAllMyOffersComponent } from './offer/view-all-my-offers/view-all-my-offers.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormsModule,
     MatInputModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    MatDividerModule,
+    MatListModule,
+    MatExpansionModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthentInterceptor, multi: true}

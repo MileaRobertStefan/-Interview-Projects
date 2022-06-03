@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { of } from 'rxjs';
 import { OfferStateService } from 'src/app/services/offer.service';
 import { SnackService } from 'src/app/services/snack.service';
 import { UserService } from 'src/app/services/user.service';
@@ -34,11 +33,29 @@ export class ViewSingleOfferComponent implements OnInit {
     private readonly userService: UserService,
     public dialog: MatDialog,
     private readonly tx: OfferStateService
-  ) {}
+  ) {
+
+
+  }
+
+  public wiling2host: string[] = [];
+  public typeOfAccomodation: string[] = [];
+
 
   ngOnInit(): void {
+    console.log(this.offer)
     this.userService.userObservable().subscribe(user => this.user = user)
+    this.offer.period;
+
+    try {
+      this.offer.wiling2host = (<string>this.offer.wiling2host).split("#");
+      this.offer.typeOfAccomodation = (<string>this.offer.typeOfAccomodation).split("#");
+    } catch (e) { }
+    this.wiling2host = <string[]>this.offer.wiling2host;
+    this.typeOfAccomodation = <string[]>this.offer.typeOfAccomodation;
+
   }
+
 
   apply() {
     const dialogRef = this.dialog.open(RefugeMSG, {

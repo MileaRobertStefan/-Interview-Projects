@@ -10,7 +10,6 @@ import { SnackService } from "./snack.service";
     providedIn: 'root'
 })
 export class UserService {
-    ;
     private readonly user: BehaviorSubject<User>;
 
     constructor(

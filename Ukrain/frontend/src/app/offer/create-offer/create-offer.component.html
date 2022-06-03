@@ -3,32 +3,86 @@
     <form #createForm="ngForm">
         <div fxLayout="column" fxLayoutAlign="space-around center" style="margin-top:2em;">
 
-            <mat-label>  <h2>Create a new Offer</h2> </mat-label>
+            <mat-label>
+                <h2>Create a new Offer</h2>
+            </mat-label>
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> Offer title </mat-label>
-                <textarea required matInput placeholder="Home for 3" name="description"
-                    [(ngModel)]="title"></textarea>
+                <textarea required matInput placeholder="Home for 3" name="description" [(ngModel)]="title"></textarea>
             </mat-form-field>
 
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label> Location </mat-label>
-                <textarea required matInput placeholder="Iasi" name="location"
-                    [(ngModel)]="locality"></textarea>
+            <div fxLayoutAlign="center" fxLayout="row" fxLayoutGap="2em">
+
+                <mat-form-field fxFlex="30">
+                    <mat-label> County </mat-label>
+                    <mat-select [(value)]="county"  matNativeControl required (selectionChange)="onCountyChange($event.value)">
+                        <mat-option *ngFor="let county of counties " [value]=county>{{county.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="30">
+                    <mat-label> City </mat-label>
+                    <mat-select [(value)]="city"  matNativeControl required [disabled]="selectCity">
+                        <mat-option *ngFor="let city of cities " [value]=city> {{city.name}} </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field fxFlex="30">
+                    <mat-label>
+                        The period you are willing to shelter </mat-label>
+                    <mat-select [(value)]="period" matNativeControl required>
+                        <mat-option *ngFor="let entry of housingLenght " [value]=entry>{{entry}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </div>
+            <mat-divider></mat-divider>
+
+            <mat-form-field>
+                <mat-label>
+                    Who you are willing to host: </mat-label>
+                <mat-select [(value)]="wiling2host" matNativeControl required  multiple>
+                    <mat-option *ngFor="let entry of housingOffer " [value]=entry>{{entry}}</mat-option>
+                </mat-select>
             </mat-form-field>
+
+            <mat-form-field>
+
+                <mat-label> The type of accommodation offered </mat-label>
+                <mat-select [(value)]="typeOfAccomodation" matNativeControl required multiple>
+                    <mat-option *ngFor="let entry of housingType " [value]=entry>{{entry}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> Maximum number of refugees (including kids) </mat-label>
-                <input required matInput  name="maxRef"
-                    [(ngModel)]="maxRefuge" type="number" min="0" max="100">
+                <input required matInput name="maxRef" [(ngModel)]="maxRefuge" type="number" min="0" max="100">
             </mat-form-field>
-
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> Offer description </mat-label>
-                <textarea required matInput placeholder="I can offer  you a place to sleep!" name="description"
+                <textarea #input required matInput placeholder="I can offer  you a place to sleep!" name="description"
                     [(ngModel)]="description"></textarea>
+
+                <mat-hint align="end">{{input.value?.length || 0}} characters</mat-hint>
             </mat-form-field>
+
+            <mat-form-field>
+
+                <mat-label> Location </mat-label>
+                <textarea required matInput placeholder="Iasi" name="location" [(ngModel)]="locality"></textarea>
+
+
+            </mat-form-field>
+
+
+
+
+
 
 
             <button type="button" mat-raised-button color="accent" (click)="submit(createForm)">Post!</button>

@@ -5,4 +5,11 @@
 .mat-form-field{
     width: 85%;
 
-} 
+}
+
+.no-body {
+    max-height: 48px;
+  }
+  .no-body.mat-expansion-panel-header >>> .mat-expansion-indicator {
+    display: none;
+  }
