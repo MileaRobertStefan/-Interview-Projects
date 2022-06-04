@@ -59,6 +59,11 @@ public class PendingOfferService {
 
     public boolean confirm(Long id) {
         PendingOffer pendingOffer = pendingOfferRepositor.findById(id).get();
+
+        if( pendingOffer.getAccepted()  ){
+            return  false;
+        }
+
         pendingOffer.setAccepted(true);
         pendingOffer.setConfirmedAt(LocalDateTime.now());
 
