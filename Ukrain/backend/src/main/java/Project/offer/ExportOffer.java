@@ -1,6 +1,11 @@
 package Project.offer;
 
 import Project.appuser.ExportUser;
+import Project.county.City;
+import Project.county.County;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 public class ExportOffer {
 
@@ -13,6 +18,13 @@ public class ExportOffer {
     public String locality;
     public Integer maxRefuge;
 
+    public County county;
+    public City city;
+    public String period;
+    public String wiling2host;
+    public String typeOfAccomodation;
+
+
     public ExportOffer(Offer offer) {
         this.id = offer.getId();
         this.description = offer.getDescription();
@@ -20,5 +32,10 @@ public class ExportOffer {
         this.title = offer.getTitle();
         this.locality = offer.getLocality();
         this.maxRefuge = offer.getMaxRefuge();
+        this.county = offer.getCounty();
+        this.city = offer.getCity();
+        this.period= offer.getPeriod();
+        this.wiling2host = offer.getWiling2host();
+        this.typeOfAccomodation = offer.getTypeOfAccomodation();
     }
 }

@@ -1,6 +1,8 @@
 package Project.offer;
 
 import Project.appuser.AppUser;
+import Project.county.City;
+import Project.county.County;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -26,6 +28,17 @@ public class Offer {
 
     private String locality;
     private Integer maxRefuge;
+
+    @ManyToOne
+    @JoinColumn(name = "county_id")
+    private County county;
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+    private String period;
+    private String wiling2host;
+    private String typeOfAccomodation;
+
 
 
     private LocalDateTime createdAt;
