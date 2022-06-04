@@ -28,7 +28,7 @@ public class OfferService {
     }
 
     public List<Offer> getAllByUserId(Long id) {
-        List<Offer> list = (List<Offer>) repository.findAllByAppUser(appUserRepository.getById(id));
+        List<Offer> list = repository.findAllByAppUser(appUserRepository.getById(id));
 
         if (list.size() == 0)
             list = new ArrayList<>();

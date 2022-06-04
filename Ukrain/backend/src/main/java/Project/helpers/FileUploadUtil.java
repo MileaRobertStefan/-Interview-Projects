@@ -30,7 +30,7 @@ public class FileUploadUtil {
 
 
         Path uploadPath = Paths.get( uploadDir);
-        System.out.println(uploadPath.toString());
+        System.out.println(uploadPath);
 
         Path filePath = uploadPath.resolve(filename);
         System.out.println(filePath.toAbsolutePath());

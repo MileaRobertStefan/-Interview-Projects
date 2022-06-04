@@ -52,17 +52,24 @@ public class PendingOfferService {
         pendingOffer.setCreatedAt(LocalDateTime.now());
         pendingOffer.setAccepted(false);
         pendingOffer.setDescription(description);
-
         pendingOfferRepositor.save(pendingOffer);
-        //emailSender.notifyNewPendingRequest(offer.get().getAppUser().getEmail(), buildEmail(offer.get().getAppUser().getFirstName()));
+        emailSender.notifyNewPendingRequest(offer.get().getAppUser().getEmail(), buildEmail(offer.get().getAppUser().getFirstName()));
         return true;
     }
 
     public boolean confirm(Long id) {
-        // naive accept
         PendingOffer pendingOffer = pendingOfferRepositor.findById(id).get();
         pendingOffer.setAccepted(true);
         pendingOffer.setConfirmedAt(LocalDateTime.now());
+
+        emailSender.notifyPendingRequestAccept(
+                pendingOffer.getReguestedbyuser().getEmail(),
+                buildEmail2(
+                        pendingOffer.getReguestedbyuser().getFirstName(),
+                        pendingOffer.getOffer().getAppUser().getFirstName()
+                        )
+        );
+
 
         pendingOfferRepositor.save(pendingOffer);
         return true;
@@ -79,6 +86,21 @@ public class PendingOfferService {
                 "            Some one is interested in your offer!\n" +
                 "\n" +
                 "            Thank you for your help!\n" +
+                "\n" +
+                "            All the best for Ukraina!\n" +
+                "        </p>\n" +
+                "    </div>";
+    }
+
+    private String buildEmail2(String userName, String helperName) {
+        return "<div>\n" +
+                "\n" +
+                "        <h2> Hello " + userName + "!</h2>\n" +
+                "\n" +
+                "\n" +
+                "        <p>\n" +
+                "           You have been accepted by " + helperName +" !\n" +
+
                 "\n" +
                 "            All the best for Ukraina!\n" +
                 "        </p>\n" +
