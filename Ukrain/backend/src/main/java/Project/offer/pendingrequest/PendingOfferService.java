@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -43,7 +44,7 @@ public class PendingOfferService {
         Optional<Offer> offer = offerRepository.findById(offerId);
         Optional<AppUser> appUser = appUserRepository.findById(userId);
 
-        if (!(offer.isPresent() && appUser.isPresent())) {
+        if (!(offer.isPresent() && appUser.isPresent()) && !Objects.equals(offer.get().getAppUser().getId(), userId)) {
             return false;
         }
         pendingOffer.setOffer(offer.get());
