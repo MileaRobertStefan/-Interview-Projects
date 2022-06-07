@@ -1,5 +1,45 @@
 <div class="container flex-column flex-center p-3">
 
+    <div fxLayoutAlign="center" fxLayout="row" fxLayoutGap="2em">
+    <mat-form-field fxFlex="30">
+        <mat-label> County </mat-label>
+        <mat-select [(value)]="county"  matNativeControl  (selectionChange)="onCountyChange($event.value)">
+            <mat-option *ngFor="let county of counties " [value]=county>{{county.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field fxFlex="30">
+        <mat-label>
+            The period you are plan to stay: </mat-label>
+        <mat-select [(value)]="period" matNativeControl (selectionChange)="onPeriodChange($event.value)" >
+            <mat-option *ngFor="let entry of housingLenght " [value]=entry>{{entry}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>
+            Need to host: </mat-label>
+        <mat-select [(value)]="wiling2host" matNativeControl   multiple (selectionChange)="onWiling2hostChange($event.value)">
+            <mat-option *ngFor="let entry of housingOffer " [value]=entry>{{entry}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+
+        <mat-label> The type of accommodation: </mat-label>
+        <mat-select [(value)]="typeOfAccomodation" matNativeControl  multiple (selectionChange)="onTypeOfAccomodationChange($event.value)">
+            <mat-option *ngFor="let entry of housingType " [value]=entry>{{entry}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    
+    <mat-form-field>
+        <mat-label> Number of refugees (including kids): </mat-label>
+        <input  matInput name="maxRef" [(ngModel)]="maxRefuge" type="number" min="0" max="100" (change)="onMaxRefugeChange($event)">
+    </mat-form-field>
+
+</div>
+
     <div *ngFor="let item of dataSource; index as i;">
 
         <app-view-single-offer [offer]="item"> </app-view-single-offer>

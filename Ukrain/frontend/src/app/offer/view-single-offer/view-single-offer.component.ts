@@ -43,7 +43,6 @@ export class ViewSingleOfferComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.offer)
     this.userService.userObservable().subscribe(user => this.user = user)
     this.offer.period;
 
