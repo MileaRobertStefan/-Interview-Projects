@@ -12,13 +12,16 @@ function ItemDetail({ item }) {
 
   useEffect(() => {
     if (item) return; // If item is passed as prop, no need to fetch
-
+    
     itemService.getItemById(id)
       .then(setItem)
       .catch((err) => {
         console.error(err);
         navigate('/');
       });
+
+    return () => { };
+
   }, [id, navigate]);
 
   item = item || fetchItem;

@@ -25,8 +25,8 @@ class ItemsHttpService {
         return this.handleResponse(response);
     }
 
-    async getItemById(id) {
-        const response = await fetch(`${API_BASE_URL}/items/${id}`);
+    async getItemById(id, signal) {
+        const response = await fetch(`${API_BASE_URL}/items/${id}`, { signal });
         return this.handleResponse(response);
     }
 

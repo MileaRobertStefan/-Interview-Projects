@@ -127,7 +127,6 @@ function Items() {
             rowHeight={rowHeight}
             rowProps={{ data: { expandedItemId, toggleExpand, items } }}
             rowComponent={Row}
-            initialNumToRender={10}
           />
         </div>
       </>

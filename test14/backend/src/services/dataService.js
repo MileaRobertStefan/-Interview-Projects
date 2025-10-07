@@ -4,7 +4,11 @@ const statsService = require('./statsService');
 const DATA_PATH = path.join(__dirname, '../../../data/items.json');
 
 class DataService {
-  constructor() {
+  _path = DATA_PATH;
+  
+  constructor(path = DATA_PATH) {
+    this._path = path;
+
     this.data = [];
     this.readData().then(data => {
       this.data = data;
