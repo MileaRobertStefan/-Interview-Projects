@@ -1,0 +1,968 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop Pro",
+    "category": "Electronics",
+    "price": 2499
+  },
+  {
+    "id": 2,
+    "name": "Noise Cancelling Headphones",
+    "category": "Electronics",
+    "price": 399
+  },
+  {
+    "id": 3,
+    "name": "Ultra‑Wide Monitor",
+    "category": "Electronics",
+    "price": 999
+  },
+  {
+    "id": 4,
+    "name": "Ergonomic Chair",
+    "category": "Furniture",
+    "price": 799
+  },
+  {
+    "id": 5,
+    "name": "Standing Desk",
+    "category": "Furniture",
+    "price": 1199
+  },
+  {
+    "id": 6,
+    "name": "Smartphone X",
+    "category": "Electronics",
+    "price": 1099
+  },
+  {
+    "id": 7,
+    "name": "Wireless Mouse",
+    "category": "Electronics",
+    "price": 49
+  },
+  {
+    "id": 8,
+    "name": "Mechanical Keyboard",
+    "category": "Electronics",
+    "price": 129
+  },
+  {
+    "id": 9,
+    "name": "4K Action Camera",
+    "category": "Electronics",
+    "price": 299
+  },
+  {
+    "id": 10,
+    "name": "Bluetooth Speaker",
+    "category": "Electronics",
+    "price": 199
+  },
+  {
+    "id": 11,
+    "name": "Fitness Tracker",
+    "category": "Wearables",
+    "price": 149
+  },
+  {
+    "id": 12,
+    "name": "Smartwatch Series 5",
+    "category": "Wearables",
+    "price": 399
+  },
+  {
+    "id": 13,
+    "name": "E-Reader",
+    "category": "Electronics",
+    "price": 249
+  },
+  {
+    "id": 14,
+    "name": "Portable Charger",
+    "category": "Electronics",
+    "price": 79
+  },
+  {
+    "id": 15,
+    "name": "Digital SLR Camera",
+    "category": "Electronics",
+    "price": 1499
+  },
+  {
+    "id": 16,
+    "name": "Gaming Console",
+    "category": "Electronics",
+    "price": 499
+  },
+  {
+    "id": 17,
+    "name": "Smart Home Hub",
+    "category": "Electronics",
+    "price": 199
+  },
+  {
+    "id": 18,
+    "name": "Robot Vacuum",
+    "category": "Home Appliances",
+    "price": 899
+  },
+  {
+    "id": 19,
+    "name": "Air Purifier",
+    "category": "Home Appliances",
+    "price": 299
+  },
+  {
+    "id": 20,
+    "name": "4K Ultra HD TV",
+    "category": "Electronics",
+    "price": 1999
+  },
+  {
+    "id": 21,
+    "name": "Smart Thermostat",
+    "category": "Home Appliances",
+    "price": 249
+  },
+  {
+    "id": 22,
+    "name": "Electric Toothbrush",
+    "category": "Personal Care",
+    "price": 149
+  },
+  {
+    "id": 23,
+    "name": "Hair Dryer",
+    "category": "Personal Care",
+    "price": 99
+  },
+  {
+    "id": 24,
+    "name": "Instant Pot",
+    "category": "Kitchen Appliances",
+    "price": 199
+  },
+  {
+    "id": 25,
+    "name": "Blender Pro",
+    "category": "Kitchen Appliances",
+    "price": 299
+  },
+  {
+    "id": 26,
+    "name": "Coffee Maker",
+    "category": "Kitchen Appliances",
+    "price": 149
+  },
+  {
+    "id": 27,
+    "name": "Food Processor",
+    "category": "Kitchen Appliances",
+    "price": 199
+  },
+  {
+    "id": 28,
+    "name": "Toaster Oven",
+    "category": "Kitchen Appliances",
+    "price": 89
+  },
+  {
+    "id": 29,
+    "name": "Microwave",
+    "category": "Kitchen Appliances",
+    "price": 179
+  },
+  {
+    "id": 30,
+    "name": "Yoga Mat",
+    "category": "Sports Equipment",
+    "price": 49
+  },
+  {
+    "id": 31,
+    "name": "Dumbbells Set",
+    "category": "Sports Equipment",
+    "price": 129
+  },
+  {
+    "id": 32,
+    "name": "Tennis Racket",
+    "category": "Sports Equipment",
+    "price": 89
+  },
+  {
+    "id": 33,
+    "name": "Basketball",
+    "category": "Sports Equipment",
+    "price": 29
+  },
+  {
+    "id": 34,
+    "name": "Treadmill",
+    "category": "Sports Equipment",
+    "price": 899
+  },
+  {
+    "id": 35,
+    "name": "Bestseller Novel",
+    "category": "Books",
+    "price": 24
+  },
+  {
+    "id": 36,
+    "name": "Cookbook Collection",
+    "category": "Books",
+    "price": 59
+  },
+  {
+    "id": 37,
+    "name": "Programming Guide",
+    "category": "Books",
+    "price": 49
+  },
+  {
+    "id": 38,
+    "name": "Children's Book Set",
+    "category": "Books",
+    "price": 39
+  },
+  {
+    "id": 39,
+    "name": "Historical Biography",
+    "category": "Books",
+    "price": 34
+  },
+  {
+    "id": 40,
+    "name": "Building Blocks",
+    "category": "Toys",
+    "price": 49
+  },
+  {
+    "id": 41,
+    "name": "Remote Control Car",
+    "category": "Toys",
+    "price": 69
+  },
+  {
+    "id": 42,
+    "name": "Puzzle Set",
+    "category": "Toys",
+    "price": 29
+  },
+  {
+    "id": 43,
+    "name": "Dollhouse",
+    "category": "Toys",
+    "price": 119
+  },
+  {
+    "id": 44,
+    "name": "Board Game",
+    "category": "Toys",
+    "price": 39
+  },
+  {
+    "id": 45,
+    "name": "Lawn Mower",
+    "category": "Garden Tools",
+    "price": 349
+  },
+  {
+    "id": 46,
+    "name": "Garden Hose",
+    "category": "Garden Tools",
+    "price": 39
+  },
+  {
+    "id": 47,
+    "name": "Pruning Shears",
+    "category": "Garden Tools",
+    "price": 24
+  },
+  {
+    "id": 48,
+    "name": "Wheelbarrow",
+    "category": "Garden Tools",
+    "price": 89
+  },
+  {
+    "id": 49,
+    "name": "Sprinkler System",
+    "category": "Garden Tools",
+    "price": 159
+  },
+  {
+    "id": 50,
+    "name": "Stapler",
+    "category": "Office Supplies",
+    "price": 15
+  },
+  {
+    "id": 51,
+    "name": "Paper Shredder",
+    "category": "Office Supplies",
+    "price": 79
+  },
+  {
+    "id": 52,
+    "name": "Desk Organizer",
+    "category": "Office Supplies",
+    "price": 29
+  },
+  {
+    "id": 53,
+    "name": "Whiteboard",
+    "category": "Office Supplies",
+    "price": 49
+  },
+  {
+    "id": 54,
+    "name": "Laser Printer",
+    "category": "Electronics",
+    "price": 299
+  },
+  {
+    "id": 55,
+    "name": "Winter Jacket",
+    "category": "Clothing",
+    "price": 189
+  },
+  {
+    "id": 56,
+    "name": "Running Shoes",
+    "category": "Clothing",
+    "price": 129
+  },
+  {
+    "id": 57,
+    "name": "Dress Shirt",
+    "category": "Clothing",
+    "price": 59
+  },
+  {
+    "id": 58,
+    "name": "Jeans",
+    "category": "Clothing",
+    "price": 79
+  },
+  {
+    "id": 59,
+    "name": "Sunglasses",
+    "category": "Accessories",
+    "price": 149
+  },
+  {
+    "id": 60,
+    "name": "Car Battery",
+    "category": "Automotive",
+    "price": 129
+  },
+  {
+    "id": 61,
+    "name": "Windshield Wipers",
+    "category": "Automotive",
+    "price": 39
+  },
+  {
+    "id": 62,
+    "name": "Dash Camera",
+    "category": "Automotive",
+    "price": 149
+  },
+  {
+    "id": 63,
+    "name": "Car Seat Covers",
+    "category": "Automotive",
+    "price": 79
+  },
+  {
+    "id": 64,
+    "name": "Jumper Cables",
+    "category": "Automotive",
+    "price": 35
+  },
+  {
+    "id": 65,
+    "name": "Paint Set",
+    "category": "Art Supplies",
+    "price": 49
+  },
+  {
+    "id": 66,
+    "name": "Canvas Pack",
+    "category": "Art Supplies",
+    "price": 29
+  },
+  {
+    "id": 67,
+    "name": "Drawing Pencils",
+    "category": "Art Supplies",
+    "price": 19
+  },
+  {
+    "id": 68,
+    "name": "Sketchbook",
+    "category": "Art Supplies",
+    "price": 15
+  },
+  {
+    "id": 69,
+    "name": "Easel",
+    "category": "Art Supplies",
+    "price": 89
+  },
+  {
+    "id": 70,
+    "name": "Camping Tent",
+    "category": "Outdoor Gear",
+    "price": 199
+  },
+  {
+    "id": 71,
+    "name": "Hiking Backpack",
+    "category": "Outdoor Gear",
+    "price": 129
+  },
+  {
+    "id": 72,
+    "name": "Sleeping Bag",
+    "category": "Outdoor Gear",
+    "price": 89
+  },
+  {
+    "id": 73,
+    "name": "Portable Grill",
+    "category": "Outdoor Gear",
+    "price": 149
+  },
+  {
+    "id": 74,
+    "name": "Water Filter",
+    "category": "Outdoor Gear",
+    "price": 59
+  },
+  {
+    "id": 75,
+    "name": "Digital Watch",
+    "category": "Wearables",
+    "price": 99
+  },
+  {
+    "id": 76,
+    "name": "Wireless Earbuds",
+    "category": "Electronics",
+    "price": 179
+  },
+  {
+    "id": 77,
+    "name": "Tablet Pro",
+    "category": "Electronics",
+    "price": 699
+  },
+  {
+    "id": 78,
+    "name": "External Hard Drive",
+    "category": "Electronics",
+    "price": 129
+  },
+  {
+    "id": 79,
+    "name": "USB Flash Drive",
+    "category": "Electronics",
+    "price": 29
+  },
+  {
+    "id": 80,
+    "name": "Ceiling Fan",
+    "category": "Home Appliances",
+    "price": 149
+  },
+  {
+    "id": 81,
+    "name": "Desk Lamp",
+    "category": "Furniture",
+    "price": 69
+  },
+  {
+    "id": 82,
+    "name": "Bookshelf",
+    "category": "Furniture",
+    "price": 199
+  },
+  {
+    "id": 83,
+    "name": "Coffee Table",
+    "category": "Furniture",
+    "price": 249
+  },
+  {
+    "id": 84,
+    "name": "Area Rug",
+    "category": "Home Decor",
+    "price": 199
+  },
+  {
+    "id": 85,
+    "name": "Wall Clock",
+    "category": "Home Decor",
+    "price": 59
+  },
+  {
+    "id": 86,
+    "name": "Picture Frame Set",
+    "category": "Home Decor",
+    "price": 49
+  },
+  {
+    "id": 87,
+    "name": "Curtains",
+    "category": "Home Decor",
+    "price": 89
+  },
+  {
+    "id": 88,
+    "name": "Throw Pillows",
+    "category": "Home Decor",
+    "price": 39
+  },
+  {
+    "id": 89,
+    "name": "Slow Cooker",
+    "category": "Kitchen Appliances",
+    "price": 79
+  },
+  {
+    "id": 90,
+    "name": "Electric Kettle",
+    "category": "Kitchen Appliances",
+    "price": 49
+  },
+  {
+    "id": 91,
+    "name": "Cutlery Set",
+    "category": "Kitchen Supplies",
+    "price": 99
+  },
+  {
+    "id": 92,
+    "name": "Cookware Set",
+    "category": "Kitchen Supplies",
+    "price": 249
+  },
+  {
+    "id": 93,
+    "name": "Bathroom Scale",
+    "category": "Personal Care",
+    "price": 49
+  },
+  {
+    "id": 94,
+    "name": "Curling Iron",
+    "category": "Personal Care",
+    "price": 59
+  },
+  {
+    "id": 95,
+    "name": "Men's Grooming Kit",
+    "category": "Personal Care",
+    "price": 79
+  },
+  {
+    "id": 96,
+    "name": "Smart Light Bulbs",
+    "category": "Electronics",
+    "price": 49
+  },
+  {
+    "id": 97,
+    "name": "Security Camera",
+    "category": "Electronics",
+    "price": 179
+  },
+  {
+    "id": 98,
+    "name": "Tool Set",
+    "category": "Hardware",
+    "price": 149
+  },
+  {
+    "id": 99,
+    "name": "Power Drill",
+    "category": "Hardware",
+    "price": 129
+  },
+  {
+    "id": 100,
+    "name": "Ladder",
+    "category": "Hardware",
+    "price": 99
+  },
+  {
+    "id": 101,
+    "name": "Medicine Cabinet",
+    "category": "Furniture",
+    "price": 129
+  },
+  {
+    "id": 102,
+    "name": "Bike Helmet",
+    "category": "Sports Equipment",
+    "price": 69
+  },
+  {
+    "id": 103,
+    "name": "Rowing Machine",
+    "category": "Sports Equipment",
+    "price": 799
+  },
+  {
+    "id": 104,
+    "name": "Wireless Headset",
+    "category": "Electronics",
+    "price": 149
+  },
+  {
+    "id": 105,
+    "name": "Streaming Media Player",
+    "category": "Electronics",
+    "price": 99
+  },
+  {
+    "id": 106,
+    "name": "Digital Piano",
+    "category": "Musical Instruments",
+    "price": 699
+  },
+  {
+    "id": 107,
+    "name": "Acoustic Guitar",
+    "category": "Musical Instruments",
+    "price": 349
+  },
+  {
+    "id": 108,
+    "name": "Water Bottle",
+    "category": "Kitchen Supplies",
+    "price": 25
+  },
+  {
+    "id": 109,
+    "name": "Travel Mug",
+    "category": "Kitchen Supplies",
+    "price": 29
+  },
+  {
+    "id": 110,
+    "name": "Luggage Set",
+    "category": "Travel Gear",
+    "price": 299
+  },
+  {
+    "id": 111,
+    "name": "Travel Pillow",
+    "category": "Travel Gear",
+    "price": 39
+  },
+  {
+    "id": 112,
+    "name": "Wireless Doorbell",
+    "category": "Home Security",
+    "price": 79
+  },
+  {
+    "id": 113,
+    "name": "Smart Door Lock",
+    "category": "Home Security",
+    "price": 249
+  },
+  {
+    "id": 114,
+    "name": "Plant Pot Set",
+    "category": "Garden Tools",
+    "price": 59
+  },
+  {
+    "id": 115,
+    "name": "Indoor Plant",
+    "category": "Home Decor",
+    "price": 35
+  },
+  {
+    "id": 116,
+    "name": "Wall Shelf",
+    "category": "Home Decor",
+    "price": 69
+  },
+  {
+    "id": 117,
+    "name": "Document Scanner",
+    "category": "Electronics",
+    "price": 199
+  },
+  {
+    "id": 118,
+    "name": "Wireless Charger",
+    "category": "Electronics",
+    "price": 49
+  },
+  {
+    "id": 119,
+    "name": "Desk Chair",
+    "category": "Furniture",
+    "price": 249
+  },
+  {
+    "id": 120,
+    "name": "File Cabinet",
+    "category": "Furniture",
+    "price": 179
+  },
+  {
+    "id": 121,
+    "name": "Storage Bins",
+    "category": "Home Organization",
+    "price": 39
+  },
+  {
+    "id": 122,
+    "name": "Vacuum Sealer",
+    "category": "Kitchen Appliances",
+    "price": 89
+  },
+  {
+    "id": 123,
+    "name": "Waffle Maker",
+    "category": "Kitchen Appliances",
+    "price": 59
+  },
+  {
+    "id": 124,
+    "name": "Juicer",
+    "category": "Kitchen Appliances",
+    "price": 119
+  },
+  {
+    "id": 125,
+    "name": "Hand Mixer",
+    "category": "Kitchen Appliances",
+    "price": 49
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759831781390
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759831792078
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759831799967
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832107853
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832108642
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832109211
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832109601
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832110093
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832111282
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832123303
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832124030
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832124691
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832139444
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832140265
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832141105
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832194104
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832194886
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832196075
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832197228
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832198266
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832362049
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832362709
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832363310
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832388356
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832389217
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759832833618
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759833324576
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759833325316
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759833405147
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759833406848
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759833407550
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759833408151
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759833408776
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759833416284
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759833416695
+  },
+  {
+    "name": "test",
+    "category": "IT test",
+    "price": 10,
+    "id": 1759833417075
+  }
+]

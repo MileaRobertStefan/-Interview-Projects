@@ -1,0 +1,21 @@
+.item-detail {
+  padding: 16px;
+  max-width: 400px;
+  margin: 20px auto;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.item-detail__title {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: #2d3748;
+}
+
+.item-detail__text {
+  font-size: 1rem;
+  margin: 4px 0;
+  color: #4a5568;
+}

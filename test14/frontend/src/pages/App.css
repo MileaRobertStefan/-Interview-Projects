@@ -1,0 +1,18 @@
+.navbar {
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: #2b6cb0;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar__link:hover {
+  color: #2c5282;
+  text-decoration: underline;
+}
